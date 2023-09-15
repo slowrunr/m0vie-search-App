@@ -21,8 +21,10 @@
   <body>
     <div class="app-container">
       <p id="introText" class="intro-text">
-        Here you can find info about almost any movie from The Open Movie
-        Database!
+        Here you can find info about almost any movie from
+        <a href="https://www.omdbapi.com/" class="external-link"
+          >The Open Movie Database!</a
+        >
       </p>
 
       <div class="input-data">
@@ -35,9 +37,11 @@
             placeholder="Enter movie title"
           />
         </div>
+        <button id="searchhBtn" class="search-btn">Search movie</button>
       </div>
-
-      <button id="searchhBtn" class="search-btn">Search movie</button>
+      <div class="output-data">
+        <p class="error-message">No such movie found 🤔</p>
+      </div>
     </div>
     <script src="index.js"></script>
   </body>
