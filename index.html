@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="icons/movie-search-icon.png" />
+    <title>m0vie-search-app</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <p id="introText" class="intro-text">
+        Here you can find info about almost any movie from The Open Movie
+        Database!
+      </p>
+
+      <div class="input-data">
+        <div class="title-input-wrapper">
+          <input
+            autocomplete="off"
+            type="text"
+            id="titleInput"
+            class="title-input"
+            placeholder="Enter movie title"
+          />
+        </div>
+      </div>
+
+      <button id="searchhBtn" class="search-btn">Search movie</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
