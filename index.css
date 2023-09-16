@@ -108,3 +108,10 @@ body {
   font-style: normal;
   color: #0094ff !important;
 }
+
+.border-red {
+  width: 95%;
+  padding-left: 5px;
+  border: 2px dotted #ad1818;
+  border-radius: 8px;
+}
