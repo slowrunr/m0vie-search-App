@@ -1,61 +1,63 @@
 const API_URL = "https://www.omdbapi.com/?s=batman&apikey=5b10ef8b";
-const API_CLUE = "5b10ef8b";
+const API_PERSONAL_KEY = "5b10ef8b";
 const BODY_FIXED = "body-fixed";
 const ERROR_MESSAGE_TEXT = "No such movie found 🤔";
 const STATUS_OUT_OF_DATA_CLASSNAME = "border-red";
 
-// const barElNode = document.querySelector(".bar");
-// const bodyNode = document.querySelector("body");
-// const headerNode = document.querySelector(".header");
-
-// const formNode = document.getElementById("form");
-// const inputNode = document.getElementById("input");
-// const moviesElNode = document.getElementById("movies__list");
-// const movieCardNode = document.getElementById("movie__card-container");
-// const closeButtonNode = document.getElementById("movie__card-close-btn");
-
 const titleInputNode = document.getElementById("titleInput");
 const searchBtnNode = document.getElementById("searchBtn");
+const movieSearchResultsNode = document.getElementById("movieSearchResults");
 
-function getMovieFromApi() {
-  const params = new URLSearchParams(location.search);
-  const id = params.get("id");
-  console.log(id);
+let movieList = [];
 
-  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+function getMovieFromOMDB() {
+  const movieTitle = titleInputNode.value;
+  fetch(`http://www.omdbapi.com/?apikey=${API_PERSONAL_KEY}&s=${movieTitle}`)
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((searchResults) => {
+      console.log(searchResults);
+      movieList = searchResults.Search;
+    });
+  //need to be fixed!!!!!
+  if (response === "True") {
+    searchResults.Search.forEach((movie) => {
+      const moviePoster = movie.Poster;
+      const movieTitle = movie.Title;
+      const movieYear = movie.Year;
+      const movieType = movie.Type;
+      //const fallbackImage = "resourses/undefined-movie.png";
+
+      const movieHTML = `
+        <li class="js-movie movie">
+          <div class="col">
+            <img class="movie-img" src="${moviePoster}" alt="${movieTitle}" onerror="this.src='${fallbackImage}'">
+          </div>
+          <div class="col">
+            <h2 class="movie-title">${movieTitle}</h2>
+            <p class="movie-year">${movieYear}</p>
+            <p class="movie-type">${movieType}</p>
+          </div>
+        </li>
+      `;
+
+      movieSearchResultsNode.insertAdjacentHTML("beforeend", movieHTML);
+    });
+
+    clearInput();
+  }
 }
 
-function searchMovieByTitle() {
-  if (!titleInputNode.value) {
-    titleInputNode.classList.add(STATUS_OUT_OF_DATA_CLASSNAME);
-    return;
-  }
-
-  const movieTitle = titleInputNode.value.trim();
-
-  // const watchlistItem = {
-  //   id: Date.now(),
-  //   text: watchlistItemTitle,
-  //   itemWrapperStyle: false,
-  //   checkboxStyle: false,
-  //   watchlistTitleStyle: false,
-  // };
-
-  // renderWatchlistItem(watchlistItem);
-
-  // watchlist.push(watchlistItem);
-
-  // saveItemsToLocalStorage();
-
+function clearInput() {
   titleInputNode.value = "";
-
   titleInputNode.focus();
 }
 
-function searchMovieBtnHandler() {
-  getMovieFromApi();
+function triggerBtnEnter(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    document.getElementById("searchBtn").click();
+  }
 }
 
-searchBtnNode.addEventListener("click", searchMovieBtnHandler);
+searchBtnNode.addEventListener("click", getMovieFromOMDB);
+titleInputNode.addEventListener("keypress", triggerBtnEnter);
