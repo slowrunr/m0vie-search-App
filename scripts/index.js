@@ -21,36 +21,14 @@ function getMovieFromOMDB() {
       }
       const movieSearchResult = res.Search;
       console.log(movieSearchResult);
-      movieListNode.innerText = `${movieSearchResult}`;
-      //renderMovieList();
     });
+
+  // movieSearchResult.movieListNode.forEach((movie) => {
+  //   const movie = document.createElement("div");
+  //   movieListNode.appendChild(movie);
+  // });
 
   clearInput();
-}
-
-function renderMovieList() {
-  movieListNode.innerHTML = "";
-
-  if (response === POSITIVE_RESPONSE) {
-    results.Search.forEach((movie) => {
-      const renderedMovie = document.createElement("li");
-      renderedMovie.setAttribute("id", movie.omdbID);
-      renderedMovie.classList.add("movie-wrapper");
-
-      // renderedMovie.innerHTML = `
-      //   <div class="movies__img-container">
-      //     <img class="movies__img" src="${movie.Poster}" alt="${movie.Title}">
-      //   </div>
-      //     <div class="movies__content-container">
-      //     <h2 class="movies__title">Name: <span>${movie.Title}</span></h2>
-      //     <p class="movies__year">Year: <span>${movie.Year}</span></p>
-      //     <p class="movies__type">Type: <span>${movie.Type}</span></p>
-      //   </div>
-      // `;
-
-      movieListNode.insertAdjacentHTML("beforeend", renderedMovie);
-    });
-  }
 }
 
 function clearInput() {
