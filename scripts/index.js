@@ -31,10 +31,10 @@ function searchMovieInOMDB() {
 
           const movieCardMini = `
               <li class="movie-card__mini">
-                <div class="col">
-                  <img class="movie-img" src="${moviePoster}" alt="${movieTitle}" onerror="this.src='${backupImage}'">
+                <div class="movie-poster__wrapper">
+                  <img class="movie-poster" src="${moviePoster}" alt="${movieTitle}" onerror="this.src='${backupImage}'">
                 </div>
-                <div class="col">
+                <div class="movie-info">
                   <h2 class="movie-title">${movieTitle}</h2>
                   <p class="movie-year">${movieYear}</p>
                   <p class="movie-type">${movieType}</p>
