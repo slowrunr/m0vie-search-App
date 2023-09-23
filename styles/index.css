@@ -35,12 +35,13 @@ body {
   line-height: normal;
 }
 
-.error-message {
+.error__message {
+  margin: 0 auto;
+  width: 70%;
   height: 49px;
-  text-align: center;
   font-size: 40px;
-  font-style: normal;
   line-height: 49px;
+  text-align: center;
 }
 
 .search-btn {
@@ -112,7 +113,7 @@ body {
   border-radius: 8px;
 }
 
-.movie-card__mini {
+.movie__card-mini {
   margin-bottom: 28px;
   padding: 41px 33px 27px;
   display: flex;
@@ -122,7 +123,7 @@ body {
   cursor: pointer;
 }
 
-.movie-card__mini:hover {
+.movie__card-mini:hover {
   border-radius: 35px;
   background-color: rgba(255, 255, 255, 0.286);
 }
@@ -130,6 +131,7 @@ body {
 .movie-poster__wrapper {
   width: 100px;
   height: 148px;
+  border-radius: 7px;
 }
 
 .movie-poster {

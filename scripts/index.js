@@ -30,7 +30,7 @@ function searchMovieInOMDB() {
           const backupImage = NO_POSTER_IMAGE;
 
           const movieCardMini = `
-              <li class="movie-card__mini">
+              <li class="movie__card-mini">
                 <div class="movie-poster__wrapper">
                   <img class="movie-poster" src="${moviePoster}" alt="${movieTitle}" onerror="this.src='${backupImage}'">
                 </div>
@@ -47,7 +47,7 @@ function searchMovieInOMDB() {
         console.log(data);
       } else {
         const wrongTitleHTML = `
-        <li class="error">Movie not found. Check if the title is correct and try again</li>
+        <li class="error__message">Movie not found. Check if the title is correct and try again.</li>
         `;
         movieListNode.insertAdjacentHTML("beforeend", wrongTitleHTML);
       }
@@ -55,7 +55,7 @@ function searchMovieInOMDB() {
     .catch((error) => {
       console.log(error);
       const errorHTML = `
-        <li class="error-message">An error occurred. Please try again later.</li>
+        <li class="error__message">An error occurred. Please try again later.</li>
         `;
       movieListNode.insertAdjacentHTML("beforeend", errorHTML);
     });
