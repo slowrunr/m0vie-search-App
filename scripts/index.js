@@ -9,12 +9,18 @@ const STATUS_OUT_OF_DATA_CLASSNAME = "border-red";
 const titleInputNode = document.getElementById("titleInput");
 const searchBtnNode = document.getElementById("searchBtn");
 const movieListNode = document.getElementById("movieList");
+// const parentNode = movieListNode;
+// const movieCardMini = parentNode.querySelector(".movie__card-mini");
 
 let movieList = [];
 
 function searchMovieInOMDB() {
-  const movieTitle = titleInputNode.value;
+  sendRequestToAPiAndRender();
+  clearInput();
+}
 
+function sendRequestToAPiAndRender() {
+  const movieTitle = titleInputNode.value;
   fetch(`http://www.omdbapi.com/?apikey=${API_PERSONAL_KEY}&s=${movieTitle}`)
     .then((response) => response.json())
     .then((data) => {
@@ -26,11 +32,10 @@ function searchMovieInOMDB() {
           const movieYear = movie.Year;
           const movieType = movie.Type;
           const moviePoster = movie.Poster;
-
           const backupImage = NO_POSTER_IMAGE;
 
           const movieCardMini = `
-              <li class="movie__card-mini">
+              <li id="movieCardMini" class="movie__card-mini">
                 <div class="movie-poster__wrapper">
                   <img class="movie-poster" src="${moviePoster}" alt="${movieTitle}" onerror="this.src='${backupImage}'">
                 </div>
@@ -59,8 +64,6 @@ function searchMovieInOMDB() {
         `;
       movieListNode.insertAdjacentHTML("beforeend", errorHTML);
     });
-
-  clearInput();
 }
 
 function clearInput() {
@@ -77,3 +80,4 @@ function triggerBtnEnter(e) {
 
 searchBtnNode.addEventListener("click", searchMovieInOMDB);
 titleInputNode.addEventListener("keypress", triggerBtnEnter);
+movieCardMini.addEventListener("click", console.log("click"));
