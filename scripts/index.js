@@ -9,8 +9,6 @@ const STATUS_OUT_OF_DATA_CLASSNAME = "border-red";
 const titleInputNode = document.getElementById("titleInput");
 const searchBtnNode = document.getElementById("searchBtn");
 const movieListNode = document.getElementById("movieList");
-// const parentNode = movieListNode;
-// const movieCardMini = parentNode.querySelector(".movie__card-mini");
 
 let movieList = [];
 
@@ -28,21 +26,19 @@ function sendRequestToAPiAndRender() {
       movieListNode.innerHTML = "";
       if (data.Response === POSITIVE_RESPONSE) {
         data.Search.forEach((movie) => {
-          const movieTitle = movie.Title;
-          const movieYear = movie.Year;
-          const movieType = movie.Type;
-          const moviePoster = movie.Poster;
+          const { imdbID, Title, Year, Type, Poster } = movie;
+
           const backupImage = NO_POSTER_IMAGE;
 
           const movieCardMini = `
-              <li id="movieCardMini" class="movie__card-mini">
+              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='/movie.html?id=${imdbID}'">
                 <div class="movie-poster__wrapper">
-                  <img class="movie-poster" src="${moviePoster}" alt="${movieTitle}" onerror="this.src='${backupImage}'">
+                  <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
                 </div>
                 <div class="movie-info">
-                  <h2 class="movie-title">${movieTitle}</h2>
-                  <p class="movie-year">${movieYear}</p>
-                  <p class="movie-type">${movieType}</p>
+                  <h2 class="movie-title">${Title}</h2>
+                  <p class="movie-year">${Year}</p>
+                  <p class="movie-type">${Type}</p>
                 </div>
               </li>
             `;
@@ -80,4 +76,3 @@ function triggerBtnEnter(e) {
 
 searchBtnNode.addEventListener("click", searchMovieInOMDB);
 titleInputNode.addEventListener("keypress", triggerBtnEnter);
-movieCardMini.addEventListener("click", console.log("click"));
