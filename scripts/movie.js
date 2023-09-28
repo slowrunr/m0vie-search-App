@@ -1,11 +1,40 @@
 const BASE_URL = "http://www.omdbapi.com";
+const API_PERSONAL_KEY = "5b10ef8b";
+const movieCardNode = document.querySelector("#movieCardWrapper");
 
-const movieCardNode = querySelector("#movieCardWrapper");
+const movieId = "tt93336300";
 
-// fetch(`${BASE_URL}/?apikey=${API_PERSONAL_KEY}&i=${imdbID}`)
-// .then((response) => response.json())
-// .then((movie) = result
-//   movieListNode.innerHTML = "";
+getMovieInfo(movieId).then((result) => {
+  const movie = result;
+  console.log(movie);
+  //   render(movie);
+});
+
+// function render(movie) {
+//   const {
+//     Title,
+//     Year,
+//     Rated,
+//     Released,
+//     Runtime,
+//     Genre,
+//     Director,
+//     Actors,
+//     Plot,
+//     Awards,
+//     Poster,
+//   } = movie;
+//   movieCardNode.innerHTML = "";
+// }
+
+function getMovieInfo(moviId) {
+  return fetch(`${BASE_URL}/?apikey=${API_PERSONAL_KEY}&i=${imdbID}`).then(
+    (data) => data.json().Search
+  );
+}
+//
+//
+//   movieCardNode.innerHTML = "";
 //   if (data.Response === POSITIVE_RESPONSE) {
 //     data.Search.forEach((movie) => {
 //       const { imdbID, Title, Year, Type, Poster } = movie;
@@ -25,7 +54,7 @@ const movieCardNode = querySelector("#movieCardWrapper");
 //           </li>
 //         `;
 
-//       movieListNode.insertAdjacentHTML("beforeend", movieCardMini);
+//       movieCardNode.insertAdjacentHTML("beforeend", movieCardMini);
 //     });
 //     console.log(data);
 //   } else {
