@@ -1,4 +1,4 @@
-const API_URL = "https://www.omdbapi.com/?s=batman&apikey=5b10ef8b";
+const BASE_API_URL = "https://www.omdbapi.com";
 const API_PERSONAL_KEY = "5b10ef8b";
 const BODY_FIXED = "body-fixed";
 const NO_POSTER_IMAGE = "icons/no-poster-icon.png";
@@ -19,7 +19,7 @@ function searchMovieInOMDB() {
 
 function sendRequestToAPiAndRender() {
   const movieTitle = titleInputNode.value;
-  fetch(`http://www.omdbapi.com/?apikey=${API_PERSONAL_KEY}&s=${movieTitle}`)
+  fetch(`${BASE_API_URL}?apikey=${API_PERSONAL_KEY}&s=${movieTitle}`)
     .then((response) => response.json())
     .then((data) => {
       searchResults = data.Search;

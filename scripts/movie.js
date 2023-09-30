@@ -1,5 +1,6 @@
 const BASE_URL = "http://www.omdbapi.com";
 const API_PERSONAL_KEY = "5b10ef8b";
+
 const movieCardNode = document.querySelector("#movieCardWrapper");
 
 const movieId = "tt93336300";

@@ -118,6 +118,10 @@ body {
   border-radius: 8px;
 }
 
+.movie-list {
+  text-align: left;
+}
+
 .movie__card-mini {
   margin-bottom: 28px;
   padding: 41px 33px 27px;
