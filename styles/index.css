@@ -137,7 +137,7 @@ body {
   background: #d9d9d9;
 }
 
-.movie-poster__wrapper {
+.movie__poster-wrapper {
   width: 100px;
   height: 148px;
   border-radius: 7px;

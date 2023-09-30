@@ -17,8 +17,8 @@
 //     });
 // }
 
-function getMovieInfo(movieID) {
-  return fetch(`${BASE_API_URL}?i=${movieID}&apikey=${API_PERSONAL_KEY}`).then(
-    (data) => data.json().Search
-  );
-}
+// function getMovieInfo(movieID) {
+//   return fetch(`${BASE_API_URL}?i=${movieID}&apikey=${API_PERSONAL_KEY}`).then(
+//     (data) => data.json().Search
+//   );
+// }

@@ -13,11 +13,11 @@ const movieListNode = document.getElementById("movieList");
 let movieList = [];
 
 function searchMovieInOMDB() {
-  sendRequestToAPiAndRender();
+  getMoviesFromApiAndRender();
   clearInput();
 }
 
-function sendRequestToAPiAndRender() {
+function getMoviesFromApiAndRender() {
   const movieTitle = titleInputNode.value;
   fetch(`${BASE_API_URL}?apikey=${API_PERSONAL_KEY}&s=${movieTitle}`)
     .then((response) => response.json())
@@ -32,7 +32,7 @@ function sendRequestToAPiAndRender() {
 
           const movieCardMini = `
               <li id="movieCardMini" class="movie__card-mini" onclick="location.href='/movie.html?id=${imdbID}'">
-                <div class="movie-poster__wrapper">
+                <div class="movie__poster-wrapper">
                   <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
                 </div>
                 <div class="movie-info">
