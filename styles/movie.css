@@ -8,30 +8,43 @@
 .movie__card {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+
   justify-content: center;
   gap: 90px;
 }
 
-.back2search-btn {
+.movie__info {
+  width: 65%;
+}
+
+.backward__btn {
+  display: block;
   margin-bottom: 125px;
   width: 358px;
   height: 48px;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-decoration: none;
 }
 
-.big {
-  width: 300px !important;
-  height: 372px !important;
+.backward__btn:hover {
+  color: #0094ff;
+  text-decoration: dashed;
 }
 
-.movie-info h2 {
+.poster__wrapper {
+  width: 30%;
+  height: 379px;
+}
+
+.movie__title {
   margin-bottom: 33px;
   font-size: 50px;
   font-weight: 700;
   line-height: 61px;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
 }
 
 .descriptor {
@@ -44,4 +57,10 @@
 
 .descriptor:last-child {
   margin-bottom: 77px;
+}
+
+.higlighted {
+  font-size: 30px;
+  line-height: 36px;
+  color: #0094ff;
 }

@@ -30,21 +30,24 @@ function getMovieInfoFromApiAndRender() {
       } = movieInfo;
       const backupImage = NO_POSTER_IMAGE;
       movieCardNode.innerHTML = `
-        <h2>${Title}</h2>
-        <div class="movie__poster-wrapper big">
-        <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
+        <h2 class="movie__title">${Title}</h2>
+        <div class="movie__card">
+            <div class="poster__wrapper">
+            <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
+            </div>
+            <div class="movie__info">
+                <p class="descriptor">Year: <span class="higlighted">${Year}</span></p>
+                <p class="descriptor"> Rating: <span class="higlighted">${Rated}</span></p>
+                <p class="descriptor"> Awards: <span class="higlighted">${Awards}</span></p>
+                <p class="descriptor"> Runtime: <span class="higlighted">${Runtime}</span></p>
+                <p class="descriptor"> Genre: <span class="higlighted">${Genre}</span></p>
+                <p class="descriptor"> Director: <span class="higlighted">${Director}</span></p>
+                <p class="descriptor"> Actors: <span class="higlighted">${Actors}</span></p>
+                <p class="descriptor"> Plot: <span class="higlighted">${Plot}</span></p>
+            </div>  
         </div>
-        <div class="movie-info">
-            <p class="descriptor">Year: <span class="movie-year">${Year}</span></p>
-            <p class="descriptor"> Rating: <span class="movie-year">${Rated}</span></p>
-            <p class="descriptor"> Release Date: <span class="movie-year">${Released}</span></p>
-            <p class="descriptor"> Runtime: <span class="movie-year">${Runtime}</span></p>
-            <p class="descriptor"> Genre: <span class="movie-year">${Genre}</span></p>
-            <p class="descriptor"> Director: <span class="movie-year">${Director}</span></p>
-            <p class="descriptor"> Actors: <span class="movie-year">${Actors}</span></p>
-            <p class="descriptor"> Awards: <span class="movie-year">${Awards}</span></p>
-        </div>  
-        <p class="descriptor"> Plot: <span class="movie-year">${Plot}</span></p>
+        
+        
      `;
 
       console.log(movieInfo);
