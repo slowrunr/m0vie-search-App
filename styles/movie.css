@@ -1,36 +1,41 @@
 .movie__card-wrapper {
   margin: 0 auto;
-  padding-top: 60px;
-  display: block;
   width: 1150px;
+  border: 0.5px solid #0094ff;
+  border-radius: 35px;
+  background: #d1cccc;
 }
 
-.movie__card {
+.movie__card-inner {
   width: 100%;
   display: flex;
-
   justify-content: center;
-  gap: 90px;
+  gap: 20px;
 }
 
 .movie__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
   width: 65%;
+  overflow: hidden;
 }
 
 .backward__btn {
   display: block;
-  margin-bottom: 125px;
+  margin: 30px auto 45px;
   width: 358px;
   height: 48px;
   font-size: 40px;
   line-height: 48px;
-  color: #000;
+  color: #0094ff;
   text-decoration: none;
 }
 
 .backward__btn:hover {
-  color: #0094ff;
-  text-decoration: dashed;
+  color: #000;
+  text-decoration: wavy;
 }
 
 .poster__wrapper {
@@ -39,28 +44,35 @@
 }
 
 .movie__title {
+  padding-top: 10px;
   margin-bottom: 33px;
+
   font-size: 50px;
   font-weight: 700;
   line-height: 61px;
   letter-spacing: 0em;
   text-align: center;
+  text-decoration: underline;
 }
 
 .descriptor {
-  margin-bottom: 20px;
   font-size: 30px;
   line-height: 36px;
   letter-spacing: 0em;
   text-align: left;
 }
 
-.descriptor:last-child {
-  margin-bottom: 77px;
-}
-
 .higlighted {
+  width: 90%;
   font-size: 30px;
   line-height: 36px;
   color: #0094ff;
+  cursor: pointer;
+}
+
+.movie__plot {
+  margin: 0 auto 10px;
+  padding-top: 33px;
+  width: 900px;
+  text-align: center;
 }
