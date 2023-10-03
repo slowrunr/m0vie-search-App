@@ -3,6 +3,7 @@ const API_PERSONAL_KEY = "5b10ef8b";
 NO_POSTER_IMAGE = "icons/no-poster-icon.png";
 
 const movieCardNode = document.querySelector("#movieCard");
+const bacwardBtnNode = document.querySelector("#bacwardBtn");
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

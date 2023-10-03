@@ -8,13 +8,13 @@ body {
   color: #f3f6f9 !important;
 }
 
-.active {
+/* .active {
   background: linear-gradient(
     180deg,
     rgba(0, 176, 28, 0.2) 24.48%,
     rgba(255, 255, 255, 0) 100%
   );
-}
+} */
 
 .container {
   margin: 0 auto;
@@ -24,7 +24,7 @@ body {
   align-items: center;
   gap: 85px;
   width: 930px;
-  height: 986px;
+  height: 100%;
   flex-shrink: 0;
   border-radius: 20px;
   background: #232323;

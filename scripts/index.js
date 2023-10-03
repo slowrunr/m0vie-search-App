@@ -60,6 +60,7 @@ function getMoviesFromApiAndRender() {
         `;
       movieListNode.insertAdjacentHTML("beforeend", errorHTML);
     });
+  sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
 }
 
 function clearInput() {
