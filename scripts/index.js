@@ -59,8 +59,8 @@ function getMoviesFromApiAndRender() {
         <li class="error__message">An error occurred. Please try again later.</li>
         `;
       movieListNode.insertAdjacentHTML("beforeend", errorHTML);
+      sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
     });
-  sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
 }
 
 function clearInput() {

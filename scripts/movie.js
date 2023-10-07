@@ -53,3 +53,33 @@ function getMovieInfoFromApiAndRender() {
       console.log(movieInfo);
     });
 }
+
+function renderSearchResults() {
+  const savedResults = sessionStorage.getItem("searchResults");
+  if (savedResults) {
+    searchResults = JSON.parse(savedResults);
+    moviesListNode.innerHTML = "";
+
+    searchResults.forEach((movie) => {
+      const { imdbID, Title, Year, Type, Poster } = movie;
+
+      const backupImage = NO_POSTER_IMAGE;
+      const movieCardMini = `
+              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='/movie.html?id=${imdbID}'">
+                <div class="movie__poster-wrapper">
+                  <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
+                </div>
+                <div class="movie-info">
+                  <h2 class="movie-title">${Title}</h2>
+                  <p class="movie-year">${Year}</p>
+                  <p class="movie-type">${Type}</p>
+                </div>
+              </li>
+            `;
+
+      movieListNode.insertAdjacentHTML("beforeend", movieCardMini);
+    });
+  }
+}
+
+bacwardBtnNode.addEventListener("click", renderSearchResults);
