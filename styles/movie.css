@@ -1,10 +1,10 @@
 .movie__card-wrapper {
   margin: 0 auto;
   width: 1150px;
-  border: 0.5px solid #0094ff;
+  /* border: 0.5px solid #0094ff; */
   border-radius: 35px;
   color: rgba(243, 246, 249, 1);
-  background: rgba(217, 217, 217, 0.8);
+  background: rgb(87, 83, 83);
 }
 
 .movie__card-inner {
@@ -26,10 +26,11 @@
 .backward__btn {
   display: block;
   margin: 30px auto 45px;
+  padding: 5px;
   width: 358px;
   height: 48px;
   font-size: 40px;
-  line-height: 42px;
+  line-height: 40px;
   color: #0094ff;
   text-decoration: none;
   border: none;
