@@ -13,6 +13,7 @@ const movieListNode = document.getElementById("movieList");
 let movieList = [];
 
 function searchMovieInOMDB() {
+  localStorage.removeItem("searchResults");
   getMoviesFromApiAndRender();
   clearInput();
 }
@@ -46,7 +47,7 @@ function getMoviesFromApiAndRender() {
           movieListNode.insertAdjacentHTML("beforeend", movieCardMini);
         });
         console.log(data);
-        // sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
+        localStorage.setItem("searchResults", JSON.stringify(searchResults));
       } else {
         const wrongTitleHTML = `
         <li class="error__message">Movie not found. Check if the title is correct and try again.</li>
@@ -80,7 +81,7 @@ titleInputNode.addEventListener("keypress", triggerBtnEnter);
 
 // ---- //
 window.addEventListener("load", function () {
-  const savedResults = sessionStorage.getItem("searchResults");
+  const savedResults = this.localStorage.getItem("searchResults");
 
   if (savedResults) {
     searchResults = JSON.parse(savedResults);
@@ -125,7 +126,5 @@ window.addEventListener("load", function () {
         window.location.href = `movie.html?${params.toString()}`;
       }
     });
-
-    sessionStorage.removeItem("searchResults");
   }
 });
