@@ -13,6 +13,7 @@ const movieListNode = document.getElementById("movieList");
 let movieList = [];
 
 function searchMovieInOMDB() {
+  localStorage.removeItem("searchResults");
   getMoviesFromApiAndRender();
   clearInput();
 }
@@ -46,6 +47,7 @@ function getMoviesFromApiAndRender() {
           movieListNode.insertAdjacentHTML("beforeend", movieCardMini);
         });
         console.log(data);
+        localStorage.setItem("searchResults", JSON.stringify(searchResults));
       } else {
         const wrongTitleHTML = `
         <li class="error__message">Movie not found. Check if the title is correct and try again.</li>
@@ -76,3 +78,53 @@ function triggerBtnEnter(e) {
 
 searchBtnNode.addEventListener("click", searchMovieInOMDB);
 titleInputNode.addEventListener("keypress", triggerBtnEnter);
+
+// ---- //
+window.addEventListener("load", function () {
+  const savedResults = this.localStorage.getItem("searchResults");
+
+  if (savedResults) {
+    searchResults = JSON.parse(savedResults);
+    movieListNode.innerHTML = "";
+
+    searchResults.forEach((movie) => {
+      const { imdbID, Title, Year, Type, Poster } = movie;
+
+      const backupImage = NO_POSTER_IMAGE;
+      const movieCardMini = `
+              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='/movie.html?id=${imdbID}'">
+                <div class="movie__poster-wrapper">
+                  <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
+                </div>
+                <div class="movie-info">
+                  <h2 class="movie-title">${Title}</h2>
+                  <p class="movie-year">${Year}</p>
+                  <p class="movie-type">${Type}</p>
+                </div>
+              </li>
+            `;
+
+      movieListNode.insertAdjacentHTML("beforeend", movieCardMini);
+    });
+
+    movieListNode.addEventListener("click", function (event) {
+      const clickedElement = event.target.closest(".js-movie");
+      if (clickedElement) {
+        const movieTitle =
+          clickedElement.querySelector(".movie-title").textContent;
+        const movieYear =
+          clickedElement.querySelector(".movie-year").textContent;
+        const movieType =
+          clickedElement.querySelector(".movie-type").textContent;
+
+        const params = new URLSearchParams();
+        params.set("title", movieTitle);
+        params.set("year", movieYear);
+        params.set("type", movieType);
+
+        sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
+        window.location.href = `movie.html?${params.toString()}`;
+      }
+    });
+  }
+});

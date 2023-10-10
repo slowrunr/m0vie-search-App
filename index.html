@@ -7,8 +7,8 @@
       http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests"
     /> -->
-    <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,25 +19,25 @@
     <title>m0vie-search-app</title>
   </head>
   <body>
+    <h1 class="intro-text">I'm searching:</h1>
     <div class="container">
-      <h1 id="introText" class="intro-text">
+      <!-- <h1 id="introText" class="intro-text">
         Here you can find info about almost any movie from
         <a href="https://www.omdbapi.com/" class="external-link"
           >The Open Movie Database!</a
         >
-      </h1>
-      <p>I'm searching:</p>
+      </h1> -->
       <div class="input-data">
         <div class="title-input-wrapper">
           <input
             autocomplete="off"
-            type="text"
+            type="search"
             id="titleInput"
             class="title-input"
             placeholder="Enter movie title"
           />
         </div>
-        <button id="searchBtn" class="search-btn">Search movie</button>
+        <button id="searchBtn" class="search-btn"></button>
       </div>
       <div class="output-data">
         <ul id="movieList" class="movie-list"></ul>

@@ -15,7 +15,13 @@
     <title>movie info</title>
   </head>
   <body>
-    <a class="backward__btn" href="index.html">← Back to search</a>
+    <button
+      id="backwardBtn"
+      class="backward__btn"
+      onclick="location.href='index.html'"
+    >
+      <span class="span">← </span>Back to search
+    </button>
     <div class="movie__card-wrapper">
       <div id="movieCard" class="movie__card"></div>
     </div>
