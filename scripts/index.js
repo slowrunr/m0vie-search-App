@@ -9,15 +9,14 @@ const STATUS_OUT_OF_DATA_CLASSNAME = "border-red";
 const titleInputNode = document.getElementById("titleInput");
 const searchBtnNode = document.getElementById("searchBtn");
 const movieListNode = document.getElementById("movieList");
-const barElNode = document.querySelector(".bar");
+const barNode = document.getElementById("bar");
 
 let movieList = [];
 
-//функция горизонтального скролла
 const updateBar = () => {
   let scrollPos =
     (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  barElNode.style.width = `${scrollPos}%`;
+  barNode.style.width = `${scrollPos}%`;
   requestAnimationFrame(updateBar);
 };
 updateBar();
