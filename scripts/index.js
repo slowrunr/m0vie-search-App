@@ -41,7 +41,7 @@ function getMoviesFromApiAndRender() {
           const backupImage = NO_POSTER_IMAGE;
 
           const movieCardMini = `
-              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='/movie.html?id=${imdbID}'">
+              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='../movie.html?id=${imdbID}'">
                 <div class="movie__poster-wrapper">
                   <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
                 </div>
