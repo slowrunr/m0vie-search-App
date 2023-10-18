@@ -13,13 +13,13 @@ const barNode = document.getElementById("bar");
 
 let movieList = [];
 
-const updateBar = () => {
+function showProgressBar() {
   let scrollPos =
     (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
   barNode.style.width = `${scrollPos}%`;
-  requestAnimationFrame(updateBar);
-};
-updateBar();
+  requestAnimationFrame(showProgressBar);
+}
+showProgressBar();
 
 function searchMovieInOMDB() {
   localStorage.removeItem("searchResults");
@@ -41,7 +41,7 @@ function getMoviesFromApiAndRender() {
           const backupImage = NO_POSTER_IMAGE;
 
           const movieCardMini = `
-              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='/movie.html?id=${imdbID}'">
+              <li id="movieCardMini" class="movie__card-mini" onclick="location.href='../movie.html'">
                 <div class="movie__poster-wrapper">
                   <img class="movie-poster" src="${Poster}" alt="${Title}" onerror="this.src='${backupImage}'">
                 </div>
