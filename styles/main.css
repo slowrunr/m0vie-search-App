@@ -60,7 +60,7 @@ body {
   height: 62px;
   cursor: pointer;
   background-color: unset;
-  background-image: url(/icons/arrow-right-icon.png);
+  background-image: url(../icons/arrow-right-icon.png);
   border-radius: 100px;
   background-size: contain;
   border: none;
