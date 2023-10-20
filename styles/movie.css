@@ -49,15 +49,15 @@
 }
 
 .movie__title {
-  padding-top: 10px;
-  margin-bottom: 33px;
-
-  font-size: 50px;
+  padding: 10px;
+  margin-bottom: 23px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 61px;
   letter-spacing: 0em;
   text-align: center;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .descriptor {
